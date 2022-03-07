@@ -29,10 +29,17 @@ const Homepage = () => {
     console.log(finalRes);
   };
 
-  // Delete Handler 
+  // Delete Handler
   const deleteHandler = (data) => {
+    console.log("Inside Delete Handler");
+    console.log(data);
+    let tempFinalRes = finalRes;
+    let tempFilteredResult = tempFinalRes.filter((e) => {
+      return e.id !== data;
+    });
+    setFinalRes(tempFilteredResult);
     return ;
-  }
+  };
 
   return (
     <div className="mb-3 solid">
@@ -88,7 +95,6 @@ const Homepage = () => {
           </button>
         </form>
       </div>
-
 
       <div className="cardInHomepage container d-flex flex-column justify-content-center align-items-center mt-3 h-auto">
         {finalRes.map((data, index) => {
